@@ -14,21 +14,19 @@ class _CardProfileState extends State<CardProfile> {
   bool expandCard = false;
   Color _color = Colors.white;
   final BoxShadow _shadow = BoxShadow(
-    color: Colors.black26, 
+    color: Colors.black26,
     offset: Offset(0, 4), // 0px 4px
-    blurRadius: 8, 
+    blurRadius: 8,
     spreadRadius: 0, // 0px
   );
 
   void _handleTap() {
     setState(() {
-      _height = expandCard ? 200 : 160;
-      _width  = expandCard ? 305 : 290
-      
       expandCard = !expandCard;
-      _color = _color == Colors.white
-          ? const Colors.grey[300]
-          : Colors.white;
+      _height = expandCard ? 200 : 160;
+      _width = expandCard ? 305 : 290;
+
+      _color = expandCard ? Colors.grey[300]! : Colors.white;
     });
   }
 
