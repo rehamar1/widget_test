@@ -8,24 +8,26 @@ class CardProfile extends StatefulWidget {
 }
 
 class _CardProfileState extends State<CardProfile> {
-  final double _width = 290;
+  double _width = 290;
 
-  double _height = 80;
+  double _height = 160;
   bool expandCard = false;
   Color _color = Colors.white;
   final BoxShadow _shadow = BoxShadow(
-    color: Color.fromRGBO(100, 100, 111, 0.2), // rgba(100, 100, 111, 0.2)
-    offset: Offset(0, 7), // 0px 7px
-    blurRadius: 29, // 29px
+    color: Colors.black26, 
+    offset: Offset(0, 4), // 0px 4px
+    blurRadius: 8, 
     spreadRadius: 0, // 0px
   );
 
   void _handleTap() {
     setState(() {
-      _height = _height == 80 ? 100 : 80;
+      _height = expandCard ? 200 : 160;
+      _width  = expandCard ? 305 : 290
+      
       expandCard = !expandCard;
       _color = _color == Colors.white
-          ? const Color.fromARGB(255, 244, 255, 224)
+          ? const Colors.grey[300]
           : Colors.white;
     });
   }
